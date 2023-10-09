@@ -1,0 +1,22 @@
+# .github/workflows/ci_cd.yml
+name: CI/CD
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Install dependencies
+        run: make setup
+      - name: Run tests
+        run: make test
+      - name: Deploy application
+        run: make deploy
