@@ -18,5 +18,3 @@ jobs:
         run: make setup
       - name: Run tests
         run: make test
-      - name: Deploy application
-        run: make deploy
